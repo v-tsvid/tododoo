@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg', '0.18.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -22,6 +22,26 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+
+gem 'cancancan', '1.15.0'
+gem 'devise', '4.2.0'
+gem 'haml', '4.0.7'
+gem 'omniauth-facebook', '4.0.0'
+
+gem 'rspec-rails', '3.5.2'
+gem 'faker', '1.6.6'
+gem 'factory_girl_rails', '4.7.0'
+gem "rubycritic", '2.9.3', require: false
+gem "bower-rails", '0.10.0'
+
+gem "foreman", '0.82.0'
+
+group :production, :staging do
+  gem "rails_12factor", '0.0.3'
+  gem "rails_stdout_logging", '0.0.5'
+  gem "rails_serve_static_assets", '0.0.5'
+end
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -43,5 +63,13 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :test do
+  gem 'database_cleaner', '1.5.3'
+  gem 'shoulda-matchers', '3.1.1'
+  gem 'shoulda-callback-matchers', '1.1.4'
+  gem "codeclimate-test-reporter", '0.6.0', require: nil
+  gem 'simplecov', '0.10.0', require: false
 end
 
