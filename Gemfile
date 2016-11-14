@@ -33,8 +33,9 @@ gem 'faker', '1.6.6'
 gem 'factory_girl_rails', '4.7.0'
 gem "rubycritic", '2.9.3', require: false
 gem "bower-rails", '0.10.0'
-
 gem "foreman", '0.82.0'
+gem 'angular-rails-templates', '1.0.2'
+gem 'bootstrap-sass', '3.3.5.1'
 
 group :production, :staging do
   gem "rails_12factor", '0.0.3'
