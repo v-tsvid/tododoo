@@ -1,0 +1,9 @@
+.modal-demo{"ng-controller": "ProjectController"}
+  .modal-header
+    %h4.modal-title
+      Enter new title for your project
+  .modal-body
+    %input.form-control{type: "text", "ng-model": "project.title"}
+  .modal-footer
+    %button.btn.btn-primary{type: "button", "ng-click": "ok()"}= "OK"
+    %button.btn.btn-warning{type: "button", "ng-click": "cancel()"}= "Cancel"

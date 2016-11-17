@@ -115,8 +115,11 @@ body {
 
 .media {
   border-top: 1px solid white;
-  padding-bottom: 5px;
+  padding-top: 5px;
   background-color: $gray-lighter;
   padding-left: 10px;
   padding-right: 5px;
 }
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
