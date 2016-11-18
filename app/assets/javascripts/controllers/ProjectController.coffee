@@ -34,19 +34,21 @@ controllers.controller("ProjectController", [
         controllerAs: "$scope",
         size: 'lg'})
 
-      modalInstance.result.then ((selectedItem) ->
-        $scope.project.title
-      ), ->
+      $scope.prevTitle = $scope.project.title
+
+      modalInstance.result.then ( ->
+        $scope.project.title), ->
         $log.info 'modal-component dismissed at: ' + new Date
 
     $scope.ok = -> 
-      $scope.project.$save()
+      Project.save($scope.project).$promise.then ->
+        return Project.get({projectId: $routeParams.projectId})
+        .$promise.then (data, error) ->
+          $scope.project = data
       $scope.modalInstance.close($scope.project.title)
 
     $scope.cancel = ->
+      $scope.project.title = $scope.prevTitle
       $scope.modalInstance.dismiss('cancel')
-      $route.reload()
 
-    $scope.delete = (id)->
-      $scope.project.delete()
 ])

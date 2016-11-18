@@ -28,7 +28,7 @@
             %a.edit-project{"ng-controller": "ProjectController", "ng-click": "edit(project.id)"}
               %span.glyphicon.glyphicon-pencil{"project-id": "{{project.id}}", "aria-label": "Edit"}
           %li
-            %a.delete-project{"ng-controller": "ProjectsController", "ng-click": "delete(project.id)"}
+            %a.delete-project{"ng-click": "delete(project.id)"}
               %span.glyphicon.glyphicon-trash{"project-id": "{{project.id}}", "aria-label": "Delete"}
     #input-panel.panel.panel-default
       .input-group
