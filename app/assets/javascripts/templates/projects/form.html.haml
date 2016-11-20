@@ -1,0 +1,17 @@
+.row#button-row
+  .row-fluid
+    .col-md-8.col-md-offset-2{"flash-alert": "", duration: "0", "active-class": "alert"}
+      {{flash.message}}
+  .row-fluid
+    .col-md-8.col-md-offset-2
+      %h3= "Project"  
+  .row-fluid
+    .col-md-7.col-md-offset-2
+      .input-group
+        %span.input-group-addon{id: "basic-addon1"}= "Title"
+        %input.form-control{type: "text", "ng-model": "project.title", "aria-describedby": "basic-addon1"}
+        %span.input-group-btn
+          %button.btn.btn-primary{type: "button", "ng-click": "save()"}= "Save"
+
+    .col-md-1
+      %button.btn.btn-default.pull-right{type: "button", "ng-click": "cancel()"}= "Cancel"

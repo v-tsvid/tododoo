@@ -1,14 +1,6 @@
-
-%p
-  {{projects.length}}
-.row#header-row
-  .col-md-8.col-md-offset-2
-    %h1#main-header
-      ToDoDoo
-
 .row#button-row
   .col-md-6.col-md-offset-2
-    %button.btn.btn-success{type: "button", "ng-controller": "ProjectController", "ng-click": "new()"}
+    %button.btn.btn-primary{type: "button", "ng-controller": "ProjectController", "ng-click": "newProject()"}
       ADD TODO
   .col-md-2
     %button.btn.btn-default.pull-right{type: "button"}
@@ -25,7 +17,7 @@
             {{project.title}}
         %ul.nav.navbar-nav.navbar-right
           %li
-            %a.edit-project{"ng-controller": "ProjectController", "ng-click": "edit(project.id)"}
+            %a.edit-project{"ng-click": "edit(project.id)"}
               %span.glyphicon.glyphicon-pencil{"project-id": "{{project.id}}", "aria-label": "Edit"}
           %li
             %a.delete-project{"ng-click": "delete(project.id)"}
@@ -35,7 +27,7 @@
         %span#green-plus.input-group-addon.glyphicon.glyphicon-plus{"aria-label": "Add"}
         %input.form-control{type: "text", placeholder: "Start typing here to create a task..."}
         %span.input-group-btn
-          %button.btn.btn-success{type: "button"}
+          %button.btn.btn-primary{type: "button"}
             Add Task
     %ul.list-group.task-list-group
       %li#task-list-group-item.list-group-item

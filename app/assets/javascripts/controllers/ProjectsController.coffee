@@ -13,6 +13,9 @@ controllers.controller("ProjectsController", [
 
     $scope.projects = Project.query()
 
+    $scope.newProject = -> $location.path("/projects/new")
+    $scope.edit       = (projectId)-> $location.path("/projects/#{projectId}/edit")
+
     $scope.delete = (id)->
       Project.delete({projectId: id}).$promise.then ->
         return Project.query().$promise.then (data, error) ->
