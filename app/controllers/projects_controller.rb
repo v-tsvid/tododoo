@@ -8,11 +8,11 @@ class ProjectsController < ApplicationController
     @project = Project.find_by_id(params[:id])
   end
 
-  # def create
-  #   @project = Project.new(params.require(:project).permit(:title))
-  #   @project.save
-  #   render 'show', status: 201
-  # end
+  def create
+    @project = Project.new(params.require(:project).permit(:title, :user_id))
+    @project.save
+    render 'show', status: 201
+  end
 
   def update
     @project = Project.find(params[:id])

@@ -14,14 +14,45 @@ controllers.controller("ProjectController", [
       'save':   {method:'PUT'},
       'create': {method:'POST'}
     })
+    
+    # if $routeParams.projectId
+    #   Project.get({projectId: $routeParams.projectId},
+    #     ( (project)-> $scope.project = project ),
+    #     ( (httpResponse)->
+    #       $scope.project = null
+    #       flash.error   = "There is no project with ID #{$routeParams.projectId}"
+    #     )
+    #   )
+    # else
+    #   $scope.project = {user_id: 1}
 
     Project.get({projectId: $routeParams.projectId},
       ( (project)-> $scope.project = project ),
       ( (httpResponse)->
-        $scope.project = null
+        $scope.project = {user_id: 1}
         flash.error   = "There is no project with ID #{$routeParams.projectId}"
       )
     )
+
+    $scope.new = ->
+      $scope.modalInstance = $uibModal.open({
+        scope: $scope,
+        animation: true,
+        ariaLabelledBy: 'modal-title',
+        ariaDescribedBy: 'modal-body',
+        templateUrl: "projects/modal.html",
+        controller: "ModalInstanceController",
+        controllerAs: "$scope",
+        size: 'lg'})
+
+      $scope.prevTitle = ''
+      $scope.create = true
+      
+
+
+      modalInstance.result.then ( ->
+        $scope.project.title), ->
+        $log.info 'modal-component dismissed at: ' + new Date
 
     $scope.edit = (projectId) ->
       $scope.modalInstance = $uibModal.open({
@@ -41,10 +72,17 @@ controllers.controller("ProjectController", [
         $log.info 'modal-component dismissed at: ' + new Date
 
     $scope.ok = -> 
-      Project.save($scope.project).$promise.then ->
-        return Project.get({projectId: $routeParams.projectId})
-        .$promise.then (data, error) ->
-          $scope.project = data
+      if $scope.create
+        Project.create($scope.project).$promise.then ->
+          return Project.get({projectId: $routeParams.projectId})
+          .$promise.then (data, error) ->
+            $scope.project = data
+      else
+        Project.save($scope.project).$promise.then ->
+          return Project.get({projectId: $routeParams.projectId})
+          .$promise.then (data, error) ->
+            $scope.project = data
+
       $scope.modalInstance.close($scope.project.title)
 
     $scope.cancel = ->
