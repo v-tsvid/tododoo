@@ -1,0 +1,26 @@
+.nav.navbar.navbar-inverse.task-list-navbar
+  .container-fluid
+    .navbar-header
+      %a.navbar-brand{href: "#"}
+        %span.glyphicon.glyphicon-calendar{"aria-hidden": true}
+      %p.navbar-text
+        {{project.title}}
+    %ul.nav.navbar-nav.navbar-right
+      %li
+        %a.edit-project{"ng-click": "edit(project.id)"}
+          %span.glyphicon.glyphicon-pencil{"project-id": "{{project.id}}", "aria-label": "Edit"}
+      %li
+        %a.delete-project{"ng-click": "delete(project.id)"}
+          %span.glyphicon.glyphicon-trash{"project-id": "{{project.id}}", "aria-label": "Delete"}
+#input-panel.panel.panel-default
+  .input-group
+    %span#green-plus.input-group-addon.glyphicon.glyphicon-plus{"aria-label": "Add"}
+    %input.form-control{type: "text", placeholder: "Start typing here to create a task..."}
+    %span.input-group-btn
+      %button.btn.btn-primary{type: "button"}
+        Add Task
+%ul.list-group.task-list-group
+  %li#task-list-group-item.list-group-item
+    .row-fluid
+      .task-list{"ng-repeat": "task in project.tasks"}
+        %my-task{task: 'task'}

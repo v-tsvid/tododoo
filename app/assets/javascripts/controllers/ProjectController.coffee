@@ -43,4 +43,7 @@ controllers.controller("ProjectController", [
           onError
         )
 
+    $scope.deleteTask = (id)->
+      $scope.project.tasks.splice($scope.project.tasks.indexOf(id), 1);
+
 ])

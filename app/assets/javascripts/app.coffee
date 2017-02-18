@@ -4,6 +4,7 @@ tododoo = angular.module('tododoo',[
   'ngRoute',
   'ngResource',
   'controllers',
+  'directives',
   'angular-flash.service',
   'angular-flash.flash-alert-directive'
 ])
@@ -30,3 +31,4 @@ tododoo.config([ '$routeProvider', 'flashProvider',
 ])
 
 controllers = angular.module('controllers', [])
+directives = angular.module('directives', [])

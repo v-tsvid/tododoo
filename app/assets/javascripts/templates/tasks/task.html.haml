@@ -1,0 +1,37 @@
+.nav.navbar.task-list-navbar
+  %ul.nav.navbar-nav
+    %li.checkbox.checkbox-margined
+      %label
+        %input{type: "checkbox"}
+  .col-md-8
+    %p.li-text
+      {{task.title}}
+  %ul.nav.navbar-nav.navbar-right
+    %li.divider-vertical
+    %li
+      %a.move-task.pull-right
+        %span.glyphicon.glyphicon-sort{"task-id": "{{task.id}}", "aria-label": "Move"}
+    %li.divider-vertical
+    %li
+      %a.comment-task.pull-right
+        %span.glyphicon.glyphicon-comment{"task-id": "{{task.id}}", "aria-label": "Comment"}
+    %li.divider-vertical-short
+    %li
+      %a.edit-task.pull-right{"ng-click": "edit(task.id)"}
+        %span.glyphicon.glyphicon-pencil{"task-id": "{{task.id}}", "aria-label": "Edit"}
+    %li.divider-vertical-short
+    %li
+      %a.delete-task.pull-right{"ng-click": "remove()"}
+        %span.glyphicon.glyphicon-trash{"task-id": "{{task.id}}", "aria-label": "Delete"}
+.row-fluid
+  .comment-section{"ng-repeat": "comment in task.comments"}
+    .media
+      .media-body
+        %p.media-heading
+          {{comment.text}}
+      .media-right
+        %a.edit-comment
+          %span.glyphicon.glyphicon-edit{"comment-id": "{{comment.id}}", "aria-label": "Edit"}
+      .media-right
+        %a.delete-comment
+          %span.glyphicon.glyphicon-remove{"comment-id": "{{comment.id}}", "aria-label": "Delete"}
