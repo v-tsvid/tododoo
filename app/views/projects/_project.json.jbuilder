@@ -1,2 +1,2 @@
 json.(project, :id, :title)
-json.tasks project.tasks, partial: 'project_task', as: :task
+json.tasks project.tasks, partial: 'tasks/task', as: :task

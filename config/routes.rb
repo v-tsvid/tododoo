@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root to: "main#index"
   
   get 'main/index'
-  resources :projects, except: [:new, :edit]
-  resources :tasks, only: [:create, :index, :destroy, :update]
+  
+  [:projects, :tasks, :comments].each do |res|
+    resources res, except: [:new, :edit]
+  end
 
   devise_for :users, controllers: { 
     omniauth_callbacks: "users/omniauth_callbacks",

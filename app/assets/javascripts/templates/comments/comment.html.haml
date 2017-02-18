@@ -1,0 +1,10 @@
+.media
+  .media-body
+    %p.media-heading
+      {{comment.text}}
+  .media-right
+    %a.edit-comment
+      %span.glyphicon.glyphicon-edit{"comment-id": "{{comment.id}}", "aria-label": "Edit"}
+  .media-right
+    %a.delete-comment{"ng-click": "remove()"}
+      %span.glyphicon.glyphicon-remove{"comment-id": "{{comment.id}}", "aria-label": "Delete"}
