@@ -1,12 +1,12 @@
 controllers = angular.module('controllers')
-controllers.controller("TasksController", [ 
+controllers.controller("tasksCtrl", [ 
   '$scope'
-  '$routeParams'
+  '$stateParams'
   '$location'
   '$resource'
   '$route'
   'flash'
-  ($scope,$routeParams,$location,$resource,$route,flash)->
+  ($scope,$stateParams,$location,$resource,$route,flash)->
     Task = $resource('/tasks/:taskId', { 
       taskId: "@id", 
       format: 'json' })

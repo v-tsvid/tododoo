@@ -39,6 +39,8 @@ body {
 
 #input-panel {
   margin-bottom: 0px;
+  background-color:transparent !important;
+  border:none !important;
 }
 
 #header-row {
@@ -67,6 +69,7 @@ h3 {
 
 #green-plus {
   color: $brand-success;
+  top: 0px;
 }
 
 .divider-vertical, .divider-vertical-short, .divider-vertical-shorter{
@@ -105,9 +108,9 @@ h3 {
 }
 
 @media (max-width: 767px) {
-    .navbar-collapse .nav > .divider-vertical {
-        display: none;
-     }
+  .navbar-collapse .nav > .divider-vertical {
+      display: none;
+   }
 }
 
 .checkbox-margined, .li-text  {

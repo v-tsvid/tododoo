@@ -4,13 +4,14 @@ directives.directive 'commentItem', ->
   scope: { comment: '=' }
   templateUrl: "comments/comment.html"
   require: '^taskItem'
-  link: (scope, ele, attrs, myTaskCtrl) ->
+  link: (scope, ele, attrs, taskItemCtrl) ->
 
     scope.remove = ->
-      myTaskCtrl.removeComment scope.comment.id
+      taskItemCtrl.removeComment scope.comment.id
       return
 
     return
+
   controller: ($scope) ->
 
     @removeComment = (com) ->

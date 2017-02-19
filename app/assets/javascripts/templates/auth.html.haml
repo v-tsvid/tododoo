@@ -1,0 +1,16 @@
+.row#button-row
+  .col-md-6.col-md-offset-2
+    %button.btn.btn-primary{type: "button", "ng-controller": "projectCtrl", 
+      "ng-click": "newProject()"}
+      ADD TODO
+  .col-md-1
+    %a{"ui-sref": "login", "ng-hide": "signedIn()"}
+      %button.btn.btn-default.pull-right{type: "button"}
+        LOG IN
+  .col-md-1
+    %a{"ui-sref": "register", "ng-hide": "signedIn()"}
+      %button.btn.btn-success.pull-right{type: "button"}
+        SIGN UP
+    %a{"ng-show": "signedIn()"}
+      %button.btn.btn-info.pull-right{type: "button", "ng-click": "logout()"}
+        LOG OUT

@@ -4,13 +4,14 @@ directives.directive 'taskItem', ->
   scope: { task: '=' }
   templateUrl: "tasks/task.html"
   require: '^projectItem'
-  link: (scope, ele, attrs, myProjectCtrl) ->
+  link: (scope, ele, attrs, projectItemCtrl) ->
 
     scope.remove = ->
-      myProjectCtrl.removeTask scope.task.id
+      projectItemCtrl.removeTask scope.task.id
       return
 
     return
+
   controller: ['$scope', '$resource'
     ($scope, $resource) ->
 

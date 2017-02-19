@@ -13,8 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular/angular
-//= require angular-route/angular-route
+//= require angular-ui-router
 //= require angular-resource/angular-resource
+//= require angular-devise
 //= require angular-rails-templates
 //= require angular-flash/dist/angular-flash
 //= require angular-bootstrap/ui-bootstrap

@@ -1,0 +1,10 @@
+.col-lg-8.col-lg-offset-2
+  %h1.centered-text Log In
+  %form{"ng-submit": "login()"}
+    .form-group
+      %input.form-control{autofocus: "", "ng-model": "user.email", 
+        placeholder: "Email", type: "email"}
+    .form-group
+      %input.form-control{"ng-model": "user.password", placeholder: "Password", 
+        type: "password"}
+    %input.btn.btn-info{type: "submit", value: "Log In"}

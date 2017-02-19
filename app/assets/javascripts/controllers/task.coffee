@@ -1,26 +1,26 @@
 controllers = angular.module('controllers')
-controllers.controller("TaskController", [
+controllers.controller("taskCtrl", [
   '$scope'
   '$document'
   '$log'
-  '$routeParams'
+  '$stateParams'
   '$location'
   '$resource'
   '$uibModal'
   'flash'
-  ($scope,$document,$log,$routeParams,$location,$resource,$uibModal,flash)->
+  ($scope,$document,$log,$stateParams,$location,$resource,$uibModal,flash)->
     Task = $resource('/tasks/:taskId', { taskId: "@id", format: 'json' },
     {
       'save':   {method:'PUT'},
       'create': {method:'POST'}
     })
     
-    if $routeParams.taskId
-      Task.get({taskId: $routeParams.taskId},
+    if $stateParams.taskId
+      Task.get({taskId: $stateParams.taskId},
         ( (task)-> $scope.task = task ),
         ( (httpResponse)->
           $scope.task = null
-          flash.error   = "There is no task with ID #{$routeParams.taskId}"
+          flash.error   = "There is no task with ID #{$stateParams.taskId}"
         )
       )
     else

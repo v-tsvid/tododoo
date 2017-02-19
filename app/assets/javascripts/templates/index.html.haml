@@ -1,0 +1,4 @@
+%auth-bar
+%section.row{"ng-if": "projects"}
+  .row-fluid.col-md-8.col-md-offset-2{"ng-repeat": "project in projects"}
+    %project-item{project: 'project'}

@@ -2,8 +2,9 @@
 # Check out https://github.com/42dev/bower-rails#ruby-dsl-configuration for more options
 
 asset 'angular'
-asset 'angular-route'
+asset 'angular-ui-router'
 asset 'angular-resource'
 asset 'bootstrap-sass-official'
 asset 'angular-flash'
 asset 'angular-bootstrap'
+asset 'angular-devise'

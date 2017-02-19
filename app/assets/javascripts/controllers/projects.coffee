@@ -1,12 +1,11 @@
 controllers = angular.module('controllers')
-controllers.controller("ProjectsController", [ 
+controllers.controller("projectsCtrl", [ 
   '$scope'
-  '$routeParams'
+  '$stateParams'
   '$location'
   '$resource'
-  '$route'
   'flash'
-  ($scope,$routeParams,$location,$resource,$route,flash)->
+  ($scope,$stateParams,$location,$resource,flash)->
     Project = $resource('/projects/:projectId', { 
       projectId: "@id", 
       format: 'json' })

@@ -1,0 +1,18 @@
+.col-lg-8.col-lg-offset-2
+  %h1.centered-text Register
+  %form{"ng-submit": "register()"}
+    .form-group
+      %input.form-control{autofocus: "", "ng-model": "user.email", 
+        placeholder: "Email", type: "email"}
+    .form-group
+      %input.form-control{autofocus: "", "ng-model": "user.username", 
+        placeholder: "Username", type: "username"}
+    .form-group
+      %input.form-control{"ng-model": "user.password", placeholder: "Password", 
+        type: "password"}
+    %input.btn.btn-info{type: "submit", value: "Log In"}
+  %br
+  .panel-footer
+    Already signed up?
+    = succeed "." do
+      %a{"ui-sref": "home.login"} Log in here
