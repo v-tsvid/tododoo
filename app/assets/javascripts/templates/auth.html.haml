@@ -1,16 +1,20 @@
+.row#header-row
+  .col-md-8.col-md-offset-2
+    %h1#main-header
+      ToDoDoo
 .row#button-row
   .col-md-6.col-md-offset-2
     %button.btn.btn-primary{type: "button", "ng-controller": "projectCtrl", 
       "ng-click": "newProject()"}
       ADD TODO
   .col-md-1
-    %a{"ui-sref": "login", "ng-hide": "signedIn()"}
+    %a{"ui-sref": "login", "ng-if": "!user.id"}
       %button.btn.btn-default.pull-right{type: "button"}
         LOG IN
   .col-md-1
-    %a{"ui-sref": "register", "ng-hide": "signedIn()"}
+    %a{"ui-sref": "register", "ng-if": "!user.id"}
       %button.btn.btn-success.pull-right{type: "button"}
         SIGN UP
-    %a{"ng-show": "signedIn()"}
-      %button.btn.btn-info.pull-right{type: "button", "ng-click": "logout()"}
+    %a{"ng-if": "user.id"}
+      %button.btn.btn-info.pull-right{type: "button", "ng-click": 'signOut()'}
         LOG OUT

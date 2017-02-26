@@ -6,7 +6,7 @@ controllers.controller("projectsCtrl", [
   '$resource'
   'flash'
   ($scope,$stateParams,$location,$resource,flash)->
-    Project = $resource('/projects/:projectId', { 
+    Project = $resource('/api/projects/:projectId', { 
       projectId: "@id", 
       format: 'json' })
 

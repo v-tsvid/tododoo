@@ -1,12 +1,13 @@
 tododoo = angular.module('tododoo',[
-  'ui.router',
-  'ui.bootstrap',
-  'Devise',
-  'templates',
-  'ngResource',
-  'controllers',
-  'directives',
-  'angular-flash.service',
+  'ui.router'
+  'ui.bootstrap'
+  'templates'
+  'ngResource'
+  'ng-token-auth'
+  'ngCookies'
+  'controllers'
+  'directives'
+  'angular-flash.service'
   'angular-flash.flash-alert-directive'
 ])
 
@@ -27,19 +28,13 @@ tododoo.config(['$stateProvider', '$urlRouterProvider', 'flashProvider',
         url: '/login',
         templateUrl: "login.html"
         controller: 'authCtrl',
-        onEnter: (Auth, $state) ->
-          Auth.currentUser().then ->
-            $state.go 'home'
-            return
+        onEnter: ($state) ->
           return
       }).state('register', {
         url: '/register',
         templateUrl: "register.html"
         controller: 'authCtrl',
-        onEnter: (Auth, $state) ->
-          Auth.currentUser().then ->
-            $state.go 'home'
-            return
+        onEnter: ($state) ->
           return
       }).state('new_project', {
         url: '/projects/new',
@@ -51,6 +46,16 @@ tododoo.config(['$stateProvider', '$urlRouterProvider', 'flashProvider',
         controller: 'projectCtrl'
       })
     $urlRouterProvider.otherwise('/')
+])
+
+tododoo.run([
+  '$rootScope'
+  '$location'
+  ($rootScope, $location) ->
+    $rootScope.$on 'auth:login-success', ->
+      $location.path '/'
+      return
+    return
 ])
 
 controllers = angular.module('controllers', [])

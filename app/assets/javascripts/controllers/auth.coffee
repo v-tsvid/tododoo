@@ -1,31 +1,25 @@
 controllers = angular.module('controllers')
 controllers.controller('authCtrl', [
-  '$scope',
-  '$rootScope',
-  'Auth',
+  '$scope'
+  '$auth'
+  '$location'
+  '$rootScope'
   '$state'
-  ($scope, $rootScope, Auth, $state) ->
-    config = headers: 'X-HTTP-Method-Override': 'POST'
+  ($scope, $auth, $location, $rootScope, $state) ->
 
-    $scope.register = ->
-      Auth.register($scope.user, config).then ((user) ->
-        $rootScope.user = user
-        alert 'Thanks for signing up, ' + user.username
-        $state.go 'home'
-        return
-      ), (response) ->
-        alert response.data.error
-        return
+    $scope.$on 'auth:login-error', (ev, reason) ->
+      $scope.error = reason.errors[0]
       return
 
-    $scope.login = ->
-      Auth.login($scope.user, config).then ((user) ->
-        $rootScope.user = user
-        alert 'You\'re all signed in, ' + user.username
-        $state.go 'home'
-        return
-      ), (response) ->
-        alert response.data.error
+    $scope.$on 'auth:registration-email-error', (ev, reason) ->
+      $scope.error = reason.errors[0]
+      return
+
+    $scope.handleRegBtnClick = ->
+      $auth.submitRegistration($scope.registrationForm).then ->
+        $auth.submitLogin
+          email: $scope.registrationForm.email
+          password: $scope.registrationForm.password
         return
       return
 

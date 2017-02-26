@@ -22,7 +22,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'cancancan', '1.15.0'
-gem 'devise', '4.2.0'
 gem 'haml', '4.0.7'
 gem 'omniauth-facebook', '4.0.0'
 
@@ -34,6 +33,8 @@ gem "bower-rails", '0.10.0'
 gem "foreman", '0.82.0'
 gem 'angular-rails-templates', '1.0.2'
 gem 'bootstrap-sass', '3.3.5.1'
+gem 'devise_token_auth', '0.1.40'
+gem 'rack-cors', require: 'rack/cors'
 
 group :production, :staging do
   gem "rails_12factor", '0.0.3'

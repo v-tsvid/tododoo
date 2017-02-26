@@ -9,7 +9,7 @@ controllers.controller("projectCtrl", [
   '$uibModal'
   'flash'
   ($scope,$document,$log,$stateParams,$location,$resource,$uibModal,flash)->
-    Project = $resource('/projects/:projectId', { projectId: "@id", format: 'json' },
+    Project = $resource('api/projects/:projectId', { projectId: "@id", format: 'json' },
     {
       'save':   {method:'PUT'},
       'create': {method:'POST'}

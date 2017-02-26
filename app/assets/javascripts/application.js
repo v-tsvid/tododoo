@@ -14,8 +14,10 @@
 //= require jquery_ujs
 //= require angular/angular
 //= require angular-ui-router
+//= require ng-token-auth
 //= require angular-resource/angular-resource
-//= require angular-devise
+//= require angular-cookie/angular-cookie
+//= require angular-cookies
 //= require angular-rails-templates
 //= require angular-flash/dist/angular-flash
 //= require angular-bootstrap/ui-bootstrap
